@@ -1,13 +1,23 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'issue-task-parser'
+description: 'Parse and return tasks contained in a specific issue.'
+author: 'TakahashiIkki'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  owner:
     required: true
-    default: '1000'
+    description:
+      The account owner of the repository. The name is not case sensitive.
+
+  repo:
+    required: true
+    description:
+      The name of the repository without the .git extension. The name is not
+      case sensitive.
+
+  issue_number:
+    required: true
+    description: The number that identifies the issue.
 
 # Define your outputs here.
 outputs:
