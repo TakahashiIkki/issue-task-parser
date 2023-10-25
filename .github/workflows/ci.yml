@@ -53,7 +53,9 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 1000
+          owner: 'TakahashiIkki'
+          repo: 'issue-nippou'
+          issue_number: 4
 
       - name: Print Output
         id: output
