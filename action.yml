@@ -4,16 +4,11 @@ author: 'TakahashiIkki'
 
 # Define your inputs here.
 inputs:
-  owner:
-    required: true
-    description:
-      The account owner of the repository. The name is not case sensitive.
-
-  repo:
-    required: true
-    description:
-      The name of the repository without the .git extension. The name is not
-      case sensitive.
+  repo_token:
+    description: |-
+      Token used to authenticate with GitHub API. Default is built-in token but a personal access token may be used for organization or user projects.
+    required: false
+    default: ${{ github.token }}
 
   issue_number:
     required: true

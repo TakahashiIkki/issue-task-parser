@@ -7,6 +7,10 @@ on:
       - main
       - "releases/*"
 
+permissions:
+  contents: read # for read release
+  issues: read
+
 jobs:
   test-javascript:
     name: JavaScript Tests
@@ -53,9 +57,7 @@ jobs:
         id: test-action
         uses: ./
         with:
-          owner: 'TakahashiIkki'
-          repo: 'issue-nippou'
-          issue_number: 4
+          issue_number: 2
 
       - name: Print Output
         id: output
