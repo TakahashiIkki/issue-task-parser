@@ -1,19 +1,24 @@
 const core = require('@actions/core');
+const { getInputs } = require('./get-inputs');
+
+function run() {
+  main().catch(error => {
+    core.error(error);
+    core.setFailed(error.message);
+  });
+}
 
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
-async function run() {
+async function main() {
   try {
-    const owner = core.getInput('owner', { required: true });
-    const repo = core.getInput('repo', { required: true });
-    const issueNumber = core.getInput('issue_number', { required: true });
+    const { issueNumber, repo } = getInputs();
 
     // Set outputs for other workflow steps to use
     core.setOutput('time', [
       {
-        owner,
         repo,
         issueNumber
       }
